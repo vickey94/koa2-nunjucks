@@ -1,12 +1,11 @@
-<html>
-<head>
-    <title>Hello {{ name }}</title>
-</head>
-<body>
+
+{% extends "base.html" %} {% block main %}
+<div>
    <form action="/users/login" method="POST">
         <input name="username"  placeholder="username">
         <input type="password" name="password"placeholder="Password">
    <button type="submit" class="btn btn-primary">submit</button>
    </form>
-</body>
-</html>
+</div>
+
+{% endblock %}
