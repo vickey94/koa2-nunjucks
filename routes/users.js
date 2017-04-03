@@ -1,4 +1,5 @@
 var router = require('koa-router')();
+var db = require('../db');
 
 router.get('/',async(ctx, next)=>{
    ctx.render('users.html', {
@@ -16,6 +17,15 @@ router.get('/',async(ctx, next)=>{
       pwd = ctx.request.body.password || '';
 
       console.log('username = ' + username + 'password = '+ pwd);
+
+      
+    var u1 = await db.create({
+        id: '2' ,
+        t_username:username,
+        t_password:pwd
+    });
+    console.log('created: ' + JSON.stringify(u1));
+
 
 ctx.render('users.html', {
                 name:username
