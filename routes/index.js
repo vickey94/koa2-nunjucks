@@ -1,5 +1,6 @@
 var router = require('koa-router')();
 
+
 router.get('/',async(ctx, next)=>{
  // ctx.state = {
   //  title: 'koa2 title'
@@ -9,6 +10,8 @@ router.get('/',async(ctx, next)=>{
            
         });
  console.log(`index`);
+ 
+
  
 })
 module.exports = router;
