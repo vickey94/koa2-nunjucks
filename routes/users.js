@@ -16,22 +16,26 @@ router.get('/',async(ctx, next)=>{
       username = ctx.request.body.username || '',
       pwd = ctx.request.body.password || '';
 
-      console.log('username = ' + username + 'password = '+ pwd);
+  console.log('username = ' + username + 'password = '+ pwd);
 
-      
-    var u1 = await db.create({
-        id: '2' ,
+  
+var sql = "INSERT INTO test.tb_users (`id`,`t_username`,`t_password`) VALUES (NULL,'11','11')";
+    var u1 = await db.sequelize.query(sql,{ type: db.sequelize.QueryTypes.INSERT});
+   
+   /* var u1 = await db.User.create({
+     //   id: '2' ,
         t_username:username,
         t_password:pwd
-    });
+    })*/
+
     console.log('created: ' + JSON.stringify(u1));
 
-
-ctx.render('users.html', {
+  ctx.render('users.html', {
                 name:username
             });
-})
-  .put('/users/:id', function *(next) {
+    
+
+}).put('/users/:id', function *(next) {
     // ... 
   })
   .del('/users/:id', function *(next) {

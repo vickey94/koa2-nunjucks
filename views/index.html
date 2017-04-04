@@ -8,4 +8,12 @@
    </form>
 </div>
 
+    <h3>USERS List</h3>
+    {% for f in pets %}
+ 
+    <p>{{ f.id }}</p>
+  
+    {% endfor %}
+    <p>Total: {{ count }}</p>
+
 {% endblock %}

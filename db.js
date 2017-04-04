@@ -7,13 +7,15 @@ var sequelize = new Sequelize(config.database, config.database_username, config.
     host: config.database_host,
     dialect: 'mysql',
     pool: {
-        max: 5,
+        max: 100,
         min: 0,
         idle: 30000
     }
 });
 
-var User = sequelize.define('tb_users', {
+
+
+ var User = sequelize.define('tb_users', {
     id: {
         type: Sequelize.INTEGER(11),
         primaryKey: true
@@ -27,6 +29,11 @@ var User = sequelize.define('tb_users', {
     });
 
 
-module.exports = User;
+module.exports = {
+    sequelize,
+    User,
+
+    
+};
 
 
