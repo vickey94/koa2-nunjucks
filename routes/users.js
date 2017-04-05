@@ -11,6 +11,23 @@ router.get('/',async(ctx, next)=>{
         });
  console.log('user');
 })
+.get('/ajax/:id&:name',async(ctx,next)=>{
+    let id = ctx.params.id;
+    let name = ctx.params.name ;
+    console.log ('id is '+ id + ' name is '+ name);
+
+ /*
+     ctx.response.type = 'application/json';
+
+        ctx.response.body = {
+
+            products: products
+
+        };
+  */
+
+
+})
 .post('/login', async (ctx,next) => {
   var 
       username = ctx.request.body.username || '',
