@@ -16,16 +16,11 @@ router.get('/',async(ctx, next)=>{
     let name = ctx.params.name ;
     console.log ('id is '+ id + ' name is '+ name);
 
- /*
+ 
      ctx.response.type = 'application/json';
-
         ctx.response.body = {
-
-            products: products
-
+            "id" :  id
         };
-  */
-
 
 })
 .post('/login', async (ctx,next) => {

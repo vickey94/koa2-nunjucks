@@ -1,4 +1,6 @@
 
+
+
 {% extends "base.html" %} {% block main %}
     
     <h3>Fruits List</h3>
@@ -7,28 +9,33 @@
     {% endfor %}
     <p>Total: {{ count }}</p>
 
-{% endblock %}
+    <button id="send" name="send123">Get</button>
+
 
 <script>
 
-$.ajax({
- url:   "http://localhost:3000/users/ajax/123&abc",
- type: "GET",
- dataType: "binary", //因为是调用nodeJS返回的json数据，所以必须使用binary类型
- error: function(XMLHttpRequest, textStatus, errorThrown){
-    var s1=XMLHttpRequest;
-    var s2=textStatus;
-    var s3=errorThrown;
-    alert("error message : "+errorThrown.toString())
-    },
- success: function(data){
-    
-    alert( "Data is : " +  data );
-    } 
-
-}); 
-
+   
+$(function(){
+    $("#send").click(function(){
+     //    alert( "Data is : ");
+         $.ajax({
+             type: "GET",
+             url: "/users/ajax/123&abc",
+           //  data: {username:$("#username").val(), content:$("#content").val()},
+             dataType: "json",
+             error: function(){
+                  alert( "failed");
+             },
+             success: function(data){
+               alert( "Data is : "+data.id);
+                      }
 
 
+         });
+    });
+});
 
 </script>
+
+{% endblock %}
+
